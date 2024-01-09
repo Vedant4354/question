@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_qs.css" />
+    <!-- Add this to the head section of your HTML -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Ready?</title>
+  </head>
+  <body>
+    <div class="container">
+      <video autoplay loop muted plays-inline class="background-clip">
+        <source src="heart_bg.mp4" type="video/mp4" />
+      </video>
+      <div class="content">
+        <h1>
+          Would you honour me with the chance to take you on a date princess?
+        </h1>
+
+        <button class="welcome" id="myButton" onclick="changeText()">
+          No (you're stuck :)
+        </button>
+
+        <button class="welcome">
+          <a href="yes.html" style="text-decoration: none; color: white">
+            Yes!
+          </a>
+        </button>
+      </div>
+    </div>
+
+    <ul id="myList" hidden>
+      <li>Just one chance?</li>
+      <li>please? just one chance</li>
+      <li>I promise I'll make it worth it</li>
+      <li>Please?</li>
+      <li>Please Please Please Please Please</li>
+      <li>I'm being so nice</li>
+      <li>Please princess?</li>
+      <li>C'mon babygirl, Lets Go!</li>
+      <li>Alright still a no it is</li>
+      <li>Go on click it agian</li>
+      <li>I see you're having alot of fun with this</li>
+      <li>CUTIEEE</li>
+      <li>OMFG still? Its right there=></li>
+      <li>Thats it.</li>
+      <li>I'm not asking anymore.</li>
+      <li>Listen here, click.</li>
+      <li>good girl, again.</li>
+      <li>We are going on a date babygirl.</li>
+    </ul>
+  </body>
+  <script>
+    // JavaScript function to change the text on button click
+    function changeText() {
+      var button = document.getElementById("myButton");
+      var list = document.getElementById("myList");
+      var items = list.getElementsByTagName("li");
+
+      // Get the current text of the button
+      var currentText = button.innerText;
+
+      // Find the index of the current text in the list
+      var currentIndex = Array.from(items).findIndex(
+        (item) => item.innerText === currentText
+      );
+
+      // Check if it's the last item in the list
+      if (currentIndex === items.length - 1) {
+        // Redirect to another page
+        window.location.href = "yes.html";
+      } else {
+        // Toggle the button text to the next item in the list
+        var nextIndex = (currentIndex + 1) % items.length;
+        button.innerText = items[nextIndex].innerText;
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+</html>
